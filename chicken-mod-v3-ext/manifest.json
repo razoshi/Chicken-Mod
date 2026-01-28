@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Public Chicken Mod V3",
+    "description": "try to take over the world!",
+    "version": "1.0.0",
+    "icons": {
+        "16": "icon/chicken_icon_16.png",
+        "48": "icon/chicken_icon_48.png",
+        "128": "icon/chicken_icon_128.png"
+    },
+    "web_accessible_resources": [
+        {
+          "resources": ["src/app.js", "src/js/*", "src/media/*"],
+          "matches": ["*://*.moomoo.io/*"]
+        }
+    ],
+    "content_scripts": [{
+        "js": [
+            "src/transfer.js"
+        ],
+        "matches": ["*://*.moomoo.io/*"],
+        "run_at": "document_end",
+        "all_frames": true
+    }, {
+        "js": [
+            "src/remove.js"
+        ],
+        "matches": ["*://*.moomoo.io/*"],
+        "run_at": "document_start",
+        "all_frames": true
+    }]
+}
